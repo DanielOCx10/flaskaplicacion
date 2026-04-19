@@ -18,7 +18,7 @@ def index():
     cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM contacts')
     data = cur.fetchall()
-    print(data)
+    print(data)#38.5 minuto
     return render_template('index.html')
 
 @app.route('/add_contact', methods=['POST'])  
