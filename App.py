@@ -42,4 +42,4 @@ if __name__ == '__main__':
     app.run(port = 3000, debug=True) 
 
 
-# parte del código que se encarga de manejar las rutas para editar y eliminar contactos aún no está implementada, pero se pueden agregar fácilmente siguiendo la misma estructura que la función `add_contact`.
+# mis polainas
