@@ -15,6 +15,10 @@ app.secret_key = 'mysecretkey'
 
 @app.route('/')
 def index():
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM contacts')
+    data = cur.fetchall()
+    print(data)
     return render_template('index.html')
 
 @app.route('/add_contact', methods=['POST'])  
@@ -42,4 +46,4 @@ if __name__ == '__main__':
     app.run(port = 3000, debug=True) 
 
 
-# mis polainas
+
