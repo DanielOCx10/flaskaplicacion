@@ -4,7 +4,7 @@
 
     <div class="row">
 
-        <div class="col-md-5">
+        <div class="col-md-5 mb-4 mb-md-0">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
@@ -16,23 +16,23 @@
             {% endif %}
             {% endwith %}
 
-            <div class="card card-body">
+            <div class="card card-body form-panel">
 
                 <form action="/add_contact" method="POST">
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <input type="text" name="fullname" placeholder="fullname"
-                        class="form-control">
+                        class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="phone" placeholder="phone" class="form-control">
+                    <div class="mb-3">
+                        <input type="text" name="phone" placeholder="phone" class="form-control" required>
                     </div>
-                    <div class="form-grou">
-                        <input type="text" name="email" placeholder="Email" class="form-control">
+                    <div class="mb-3">
+                        <input type="email" name="email" placeholder="Email" class="form-control" required>
                     </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Save</button>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
 
@@ -56,8 +56,8 @@
                         <td>{{ contact.1 }}</td>
                         <td>{{ contact.2 }}</td>
                         <td>{{ contact.3 }}</td>
-                        <td>
-                            <a href="/edit/{{ contact.0 }}" class= "btn btn-secundary">Edit</a>
+                        <td class="actions-cell">
+                            <a href="/edit/{{ contact.0 }}" class= "btn btn-secondary me-2">Edit</a>
                             <a href="/delete/{{ contact.0 }}" class="btn btn-danger btn-delete">Delete</a>
                         </td>
                     </tr>
