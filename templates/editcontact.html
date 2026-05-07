@@ -4,30 +4,36 @@
 {% block body %}
 
 
-<div class="col-md-4 offset-md4">
+<div class="page-heading">
+    <h1>Edit contact</h1>
+    <p class="text-secondary mb-0">Update contact details and save your changes.</p>
+</div>
+
+<div class="row justify-content-center">
+<div class="col-md-5">
 
 
-    <div class="card card-body">
+    <div class="card card-body crud-card">
    
         <form action="/update/{{ contact.0 }}" method="POST">
 
 
             <div class="form-group">
-                <input type="text" name="fullname" placeholder="fullname" value="{{ contact.1 }}">
+                <input type="text" name="fullname" placeholder="Full name" value="{{ contact.1 }}" class="form-control">
             </div>
 
 
             <div class="form-group">
-                <input type="text" name="phone" placeholder="phone" value="{{ contact.2 }}">
+                <input type="text" name="phone" placeholder="Phone" value="{{ contact.2 }}" class="form-control">
             </div>
 
 
             <div class="form-group">
-                <input type="text" name="email" placeholder="Email" value="{{ contact.3 }}">
+                <input type="text" name="email" placeholder="Email" value="{{ contact.3 }}" class="form-control">
             </div>
            
-            <div class="form-group">
-                <button type="submit" class="btn btn-success btn-block">Save</button>
+            <div class="form-group mt-2">
+                <button type="submit" class="btn btn-success w-100">Save</button>
             </div>
 
 
@@ -37,6 +43,7 @@
     </div>
 
 
+</div>
 </div>
 
 
