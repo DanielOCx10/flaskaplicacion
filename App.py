@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mysqldb import MySQL
 
-
 app = Flask(__name__)
 
-# jjejejeks X modificacion de nuevooo
+# pc modificacion. jejeks
 # MySQL Connection
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -12,10 +11,8 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'flaskcontacts'
 mysql = MySQL(app)
 
-
 #settings
 app.secret_key = 'mysecretkey'
-
 
 @app.route('/')
 def index():
@@ -23,7 +20,6 @@ def index():
     cur.execute('SELECT * FROM contacts')
     data = cur.fetchall()
     return render_template('index.html', contacts = data)
-
 
 @app.route('/add_contact', methods=['POST'])  
 def add_contact():
@@ -38,14 +34,12 @@ def add_contact():
         flash('Contact Added Successfully')
         return redirect(url_for('index'))
 
-
 @app.route('/edit/<id>')
 def get_contact(id):
     cur = mysql.connection.cursor()
     cur.execute('SELECT * FROM contacts WHERE id = %s', (id,))
     data = cur.fetchall()
     return render_template('editcontact.html', contact = data[0])
-
 
 @app.route('/update/<id>', methods=['POST'])
 def update_contact(id):
@@ -59,7 +53,7 @@ def update_contact(id):
             SET fullname = %s,
             email = %s,
             phone = %s
-            WHERE id = %s      
+            WHERE id = %s       
         """, (fullname, email, phone, id))
         mysql.connection.commit()
         flash('Contact Updated Successfully')
@@ -73,6 +67,8 @@ def delete_contact(id):
     flash('Contact Removed Successfully')
     return redirect(url_for('index'))
 
-
 if __name__ == '__main__':
-    app.run(port = 3000, debug=True)
+    app.run(port = 3000, debug=True) 
+
+
+
